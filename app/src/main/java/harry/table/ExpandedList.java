@@ -7,8 +7,8 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteQueryBuilder;
 import android.os.Bundle;
 import android.provider.Contacts;
-import android.support.v4.widget.SimpleCursorAdapter;
-
+import android.widget.SimpleCursorAdapter;
+import android.widget.ListAdapter;
 import harry.table.MyDatabase;
 import com.readystatesoftware.sqliteasset.SQLiteAssetHelper;
 import harry.table.*;
@@ -21,21 +21,8 @@ public class ExpandedList extends ListActivity {
     public void onCreate(Bundle savedInstance) {
         super.onCreate(savedInstance);
         setContentView(R.layout.list_example);
-       /* Cursor employees2;
-        MyDatabase dbase;
-        dbase = new MyDatabase(this);
-        SQLiteDatabase db = dbase.getReadableDatabase();
-        SQLiteQueryBuilder qb = new SQLiteQueryBuilder();
-        String [] sqlSelect = {"0 _id", "FirstName", "LastName"};
-        String sqlTables = "Employees";
-        qb.setTables(sqlTables);
-        Cursor c = qb.query(db, sqlSelect, null, null,
-                null, null, null);
-        c.moveToFirst();
-        String[] columns = new String[] { "FirstName", "LastName" };
-        int[] to = new int[] { R.id.name_entry, R.id.number_entry };
-        SimpleCursorAdapter mAdapter = new SimpleCursorAdapter(this, R.layout.list_example_entry, c, columns, to);
-        this.setListAdapter(mAdapter);*/
+
+
         Cursor cursor = getContentResolver().query(Contacts.People.CONTENT_URI, new String[] {Contacts.People._ID, Contacts.People.NAME, Contacts.People.NAME}, null, null, null);
         startManagingCursor(cursor);
 

@@ -61,7 +61,7 @@ public class StartTrial extends Activity{
 
         if(v.getId()==R.id.buttonOpenDB){
             Log.d("harry","click hua");
-            Intent i = new Intent(this, ExpandedList.class);
+            Intent i = new Intent(this, DbMain.class);
             startActivity(i);
         }
     }

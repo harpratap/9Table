@@ -14,14 +14,19 @@ public class DbMain extends ListActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.list_example);
         db = new MyDatabase(this);
         employees = db.getEmployees(); // you would not typically call this on the main thread
-        ListAdapter adapter = new SimpleCursorAdapter(this,
+       /* ListAdapter adapter = new SimpleCursorAdapter(this,
                 android.R.layout.simple_list_item_1,
                 employees,
                 new String[] {"LastName"},
                 new int[] {android.R.id.text1});
-        getListView().setAdapter(adapter);
+        getListView().setAdapter(adapter);*/
+        String[] columns = new String[] { "FirstName", "LastName" };
+        int[] to = new int[] { R.id.name_entry, R.id.number_entry };
+        SimpleCursorAdapter mAdapter = new SimpleCursorAdapter(this, R.layout.list_example_entry, employees, columns, to);
+        this.setListAdapter(mAdapter);
     }
     @Override
     protected void onDestroy() {

@@ -19,7 +19,7 @@ public class DbMain extends ListActivity {
         ListAdapter adapter = new SimpleCursorAdapter(this,
                 android.R.layout.simple_list_item_1,
                 employees,
-                new String[] {"FirstName"},
+                new String[] {"LastName"},
                 new int[] {android.R.id.text1});
         getListView().setAdapter(adapter);
     }
